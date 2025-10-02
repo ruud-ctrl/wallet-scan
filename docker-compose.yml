@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    networks:
+      - wallet-scan-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - wallet-scan-network
+    depends_on:
+      - backend
+
+networks:
+  wallet-scan-network:
